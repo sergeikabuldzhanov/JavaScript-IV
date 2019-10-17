@@ -1,3 +1,6 @@
+console.log('\nLAMBDA CLASSES\n\n');
+
+
 // CODE here for your Lambda Classes
 
 //Base class Person
@@ -57,6 +60,8 @@ class Student extends Person{
     graduateStudent(){
         if(this.grade>70){
             console.log(`${this.name} has graduated from Lambda!`);
+        }else{
+            console.log(`${this.name}'s grade isn't high enough! Go learn more and try later!`);
         }
     }
 }
@@ -74,3 +79,68 @@ class ProjectManager extends Instructor{
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
+
+//Testing
+const fred = new Person({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+  });
+
+  
+  
+  const ted = new Instructor({
+    name: 'Ted',
+    location: 'NYC',
+    age: 25,
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the Yankies`
+  });
+
+
+
+  const bob = new Student({
+    name: 'Bob',
+    location: 'London',
+    age: 33,
+    previousBackground: 'Retail',
+    className: 'WEB50',
+    favSubjects: ["JavaScript","React","Node.js"]
+  });
+
+  const will = new ProjectManager({
+    name: 'Will',
+    location: 'Paris',
+    age: 31,
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Daily forms please!`,
+    gradClassName: 'WEB44',
+    favInstructor: 'Ted'
+  });
+
+//Person
+  fred.speak();
+
+  //Instructor
+  ted.speak();
+  ted.demo('React I');
+  ted.grade(bob, 'React I');
+
+  //Student
+  bob.speak();
+  bob.listSubjects();
+  bob.PRAssigment('React I');
+  bob.sprintChallenge('Intro to React')
+
+  //ProjectManager
+  will.speak();
+  will.standUp('@WEB50_Will');
+  will.debugsCode(bob, 'React I');
+
+  //Stretch
+  console.log("Bob's grade is " + bob.grade);
+  will.gradeStudent(bob);
+  console.log("Will has graded Bob's work, now Bob's grade is " + bob.grade);
+  bob.graduateStudent();
